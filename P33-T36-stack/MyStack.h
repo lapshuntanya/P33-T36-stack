@@ -32,7 +32,16 @@ namespace myStack {
 			return current->info;
 		}
 		void push_back(U value) { 
+			Node<U>* el = new Node<U>(value);
 
+			if (isEmpty()) head = current = el;
+			else
+			{
+				current->next = el;
+				el->prev = current;
+				current = el;
+				//current = current->next;
+			}
 		}
 		void pop_back() { ... }
 		void showStack()const { ... }
