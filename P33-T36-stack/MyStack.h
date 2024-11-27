@@ -43,7 +43,21 @@ namespace myStack {
 				//current = current->next;
 			}
 		}
-		void pop_back() { ... }
+
+		void pop_back() { 
+			if (!isEmpty()) {
+				if (current != head) {
+					current = current->prev;
+					delete current->next;
+					current->next = nullptr;
+				}
+				else {
+					delete head;
+					head = current = nullptr;
+				}
+			}
+		}
+
 		void showStack()const { ... }
 	};
 }
